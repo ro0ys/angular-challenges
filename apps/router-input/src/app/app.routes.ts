@@ -9,7 +9,7 @@ export const appRoutes: Route[] = [
     path: 'test/:testId',
     loadComponent: () => import('./test.component'),
     data: {
-      permission: 'admin',
+      permission: 'mec',
     },
   },
 ];
