@@ -1,8 +1,11 @@
 import { TOKEN } from '@angular-challenges/module-to-standalone/core/providers';
 import { Component, Inject } from '@angular/core';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'lib-user-shell',
+  standalone: true,
+  imports: [RouterOutlet, RouterLink],
   template: `
     -- User Panel --
     <div class="flex gap-2 items-center">
@@ -18,7 +21,7 @@ import { Component, Inject } from '@angular/core';
       </button>
       More buttons ...
     </div>
-    <router-outlet></router-outlet>
+    <router-outlet />
     <section>
       LoadedToken
       {{ token }}

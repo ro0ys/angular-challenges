@@ -1,16 +1,14 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { Injectable, signal } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
 export class AuthorizationService {
-  private isAuthorized = new BehaviorSubject<boolean>(true);
-  isAuthorized$ = this.isAuthorized.asObservable();
+  readonly isAuthorized = signal<boolean>(false);
 
   authorize() {
-    this.isAuthorized.next(true);
+    this.isAuthorized.set(true);
   }
 
   forbid() {
-    this.isAuthorized.next(false);
+    this.isAuthorized.set(false);
   }
 }
